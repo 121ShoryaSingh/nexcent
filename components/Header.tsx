@@ -1,9 +1,9 @@
 'use client';
 
-import { ArrowRight, MenuIcon } from 'lucide-react';
+import { ArrowRight, MenuIcon, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useDebugValue, useEffect, useState } from 'react';
 
 const data = [
   { index: 0, label: 'Home', link: '/' },
@@ -15,10 +15,31 @@ const data = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [color, setColor] = useState('transparent');
+  const [textColor, setTextColor] = useState('White');
+
+  const HandleMenuButton = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 90) {
+        setColor('#ffffff');
+        setTextColor('#000000');
+      } else {
+        setColor('');
+        setTextColor('#ffffff');
+      }
+    };
+    window.addEventListener('scroll', changeColor);
+  });
 
   return (
-    <div className="fixed h-16 w-full max-w-[1280px] min-w-[375px] border border-red-500 md:px-16 sm:px-12 px-5 lg:px-[6rem]">
-      <div className="flex h-full justify-between items-center">
+    <div
+      className={`fixed h-16 w-full lg:max-w-[1280px] b min-w-[375px] bg-[${color}] text-[${color}]`}
+    >
+      <div className="flex h-full justify-between items-center md:px-16 sm:px-12 px-5 lg:px-[6rem]">
         <Link href="/">
           <Image
             className="object-cover"
@@ -47,11 +68,29 @@ const Header = () => {
             <ArrowRight size={12} />
           </button>
         </div>
-        <button>
-          <MenuIcon />
+        <button
+          onClick={HandleMenuButton}
+          className="lg:hidden block"
+        >
+          {isOpen ? <X /> : <MenuIcon />}
         </button>
       </div>
-      {}
+      {isOpen && (
+        <div className="h-screen lg:hidden duration-150 flex bg-[#F5F7FA]">
+          <ul className="flex flex-col w-full pt-10 md:px-16 sm:px-12 px-5 lg:px-[6rem]">
+            {data.map((data) => {
+              return (
+                <li
+                  className="text-2xl border-b-2 border-black/25 w-full py-5 font-bold"
+                  key={data.index}
+                >
+                  <Link href={data.link}>{data.label}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
