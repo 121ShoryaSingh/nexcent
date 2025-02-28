@@ -3,7 +3,7 @@
 import { ArrowRight, MenuIcon, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useDebugValue, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const data = [
   { index: 0, label: 'Home', link: '/' },
@@ -25,10 +25,10 @@ const Header = () => {
   useEffect(() => {
     const changeColor = () => {
       if (window.scrollY >= 90) {
-        setColor('#ffffff');
+        setColor('#F5F7FA');
         setTextColor('#000000');
       } else {
-        setColor('');
+        setColor('#000000');
         setTextColor('#ffffff');
       }
     };
@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed h-16 w-full lg:max-w-[1280px] b min-w-[375px] bg-[${color}] text-[${color}]`}
+      className={`fixed h-16 w-full lg:max-w-[1280px] b min-w-[375px] bg-[${color}] text-[${textColor}]`}
     >
       <div className="flex h-full justify-between items-center md:px-16 sm:px-12 px-5 lg:px-[6rem]">
         <Link href="/">
