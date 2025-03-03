@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed h-16 w-full lg:max-w-[1280px] b min-w-[375px] bg-[${color}] text-[${textColor}]`}
+      className={`fixed h-16 w-full lg:max-w-[1280px] min-w-[320px] bg-[${color}] text-[${textColor}]`}
     >
       <div className="flex h-full justify-between items-center md:px-16 sm:px-12 px-5 lg:px-[6rem]">
         <Link href="/">
