@@ -15,29 +15,14 @@ const data = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [color, setColor] = useState('transparent');
-  const [textColor, setTextColor] = useState('White');
 
   const HandleMenuButton = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    const changeColor = () => {
-      if (window.scrollY >= 90) {
-        setColor('#F5F7FA');
-        setTextColor('#000000');
-      } else {
-        setColor('#000000');
-        setTextColor('#ffffff');
-      }
-    };
-    window.addEventListener('scroll', changeColor);
-  });
-
   return (
     <div
-      className={`fixed h-16 w-full lg:max-w-[1280px] min-w-[320px] bg-[${color}] text-[${textColor}]`}
+      className={`fixed h-16 w-full lg:max-w-[1280px] min-w-[320px] bg-white text-black`}
     >
       <div className="flex h-full justify-between items-center md:px-16 sm:px-12 px-5 lg:px-[6rem]">
         <Link href="/">
