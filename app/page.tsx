@@ -1,5 +1,6 @@
 import Community from '@/components/Community';
 import Header from '@/components/Header';
+import PixelGrade from '@/components/pixelGrade';
 import Wrapper from '@/components/Wrapper';
 
 const image = [
@@ -31,7 +32,7 @@ export default function Home() {
                 Where to grow your business as photographer site or social
                 media?
               </p>
-              <button className="w-[5.596875rem] px-6 py-3 bg-[#4caf4f] font-medium text-xs text-[#ffffff] mt-6 rounded-sm">
+              <button className="sm:w-[5.596875rem] w-full px-6 py-3 bg-[#4caf4f] font-medium text-xs text-[#ffffff] mt-6 rounded-sm">
                 Register
               </button>
             </div>
@@ -65,6 +66,9 @@ export default function Home() {
           </div>
           <div>
             <Community />
+          </div>
+          <div>
+            <PixelGrade />
           </div>
         </Wrapper>
       </div>

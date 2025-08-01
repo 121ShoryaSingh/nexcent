@@ -6,7 +6,7 @@ const data = [
     icon: '/community_1.png',
     heading: 'Membership Organisation',
     description:
-      'Our membership management software provides full automation if membetship renewals and payments',
+      'Our membership management software provides full automation of membetship renewals and payments',
   },
   {
     index: 1,
@@ -26,32 +26,36 @@ const data = [
 
 const Community = () => {
   return (
-    <div className="w-full pt-7">
-      <div className="w-full flex flex-col text-center gap-5">
-        <h1 className="mx-auto text-2xl font-semibold text-[#4d4d4d] text-wrap w-[23.5625rem]">
-          Manage your entire community in single system
+    <div className="w-full mt-6 mb-6">
+      <div className="text-center">
+        <h1 className=" max-w-sm mx-auto font-semibold text-2xl text-[#4d4d4d]">
+          Manage your entire community in a single system
         </h1>
-        <p className="text-xs text-[#717171]">Who is Nextcent Suitable for?</p>
+        <p className="mt-1 text-xs text-[#717171]">
+          Who is Nextcent Suitable for?
+        </p>
       </div>
-      <div className="flex justify-around pt-3 h-52 gap-20">
+      <div className="grid grid-flow-row sm:grid-flow-col place-items-center mt-3 gap-2">
         {data.map((data) => {
           return (
             <div
               key={data.index}
-              className="w-52 h-[11.38125rem]"
+              className="lg:max-w-xs max-w-sm px-6 py-4 rounded border border-black/5 shadow-md"
             >
-              <div className="flex flex-col gap-3 justify-center w-full">
+              <div className="flex flex-col gap-2 justify-center w-full">
                 <img
                   src={data.icon}
                   alt="icon"
                   className="w-11 h-9 mx-auto"
                 />
-                <h1 className="font-bold text-xl text-[#4d4d4d] text-center">
+                <h1 className="max-w-44 font-bold text-xl text-[#4d4d4d] text-center mx-auto">
                   {data.heading}
                 </h1>
               </div>
 
-              <p className="text-xs text-center pt-1">{data.description}</p>
+              <p className="text-xs text-center mt-1 max-w-52">
+                {data.description}
+              </p>
             </div>
           );
         })}
